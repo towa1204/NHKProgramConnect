@@ -4,7 +4,6 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'airbnb-base',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
@@ -18,4 +17,5 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {},
+  ignorePatterns: ['.eslintrc.js'],
 };
