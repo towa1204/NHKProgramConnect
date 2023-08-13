@@ -26,7 +26,7 @@ type Service = {
   logo_l: Logo;
 };
 
-type Program = {
+export type Program = {
   id: string;
   event_id: string;
   start_time: string;
