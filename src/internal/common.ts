@@ -1,13 +1,7 @@
 import { Program, ProgramListReq, ProgramListRes } from './types';
 
-export async function fetchProgram(
-  subProgramTitles: string[],
-  reqParam: ProgramListReq,
-  NHKAPIFetch: (url: string) => Promise<ProgramListRes>
-) {
-  const url = `https://api.nhk.or.jp/v2/pg/list/${reqParam.area}/${reqParam.service}/${reqParam.date}.json?key=${reqParam.apikey}`;
-  const res = await NHKAPIFetch(url);
-  return findPrograms(subProgramTitles, res);
+export function getProgramListURI(reqParam: ProgramListReq) {
+  return `https://api.nhk.or.jp/v2/pg/list/${reqParam.area}/${reqParam.service}/${reqParam.date}.json?key=${reqParam.apikey}`;
 }
 
 export function findPrograms(subProgramTitles: string[], programs: ProgramListRes) {

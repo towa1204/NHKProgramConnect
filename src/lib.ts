@@ -1,7 +1,16 @@
 import { ProgramListReq } from './internal/types';
-import { fetchProgram } from './internal/common.js';
-import { fetchNHKProgramNode } from './internal/runtime/node.js';
+import { findPrograms, getProgramListURI } from './internal/common';
+import { fetchNHKProgramNode } from './internal/runtime/node';
+import { fetchNHKProgramGAS } from './internal/runtime/gas';
 
 export async function fetchProgramNode(subProgramTitles: string[], reqParam: ProgramListReq) {
-  await fetchProgram(subProgramTitles, reqParam, fetchNHKProgramNode);
+  const uri = getProgramListURI(reqParam);
+  const programs = await fetchNHKProgramNode(uri);
+  return findPrograms(subProgramTitles, programs);
+}
+
+export function fetchProgramGAS(subProgramTitles: string[], reqParam: ProgramListReq) {
+  const uri = getProgramListURI(reqParam);
+  const programs = fetchNHKProgramGAS(uri);
+  return findPrograms(subProgramTitles, programs);
 }
