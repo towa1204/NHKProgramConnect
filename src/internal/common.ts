@@ -1,4 +1,4 @@
-import { Program, ProgramListReq, ProgramListRes } from './types';
+import { Program, ProgramListReq, ProgramListRes } from './types.js';
 
 export function getProgramListURI(reqParam: ProgramListReq) {
   return `https://api.nhk.or.jp/v2/pg/list/${reqParam.area}/${reqParam.service}/${reqParam.date}.json?key=${reqParam.apikey}`;
@@ -16,6 +16,5 @@ export function findPrograms(subProgramTitles: string[], programs: ProgramListRe
     });
     subPrograms = subPrograms.concat(filteredPrograms);
   });
-  console.log(subPrograms);
   return subPrograms;
 }

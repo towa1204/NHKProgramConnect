@@ -1,5 +1,5 @@
-import { NetworkAccessError, ResponseError } from '../exception';
-import { ProgramListRes } from '../types';
+import { NetworkAccessError, ResponseError } from '../exception.js';
+import { ProgramListRes } from '../types.js';
 
 export function fetchNHKProgramGAS(url: string) {
   let res = null;

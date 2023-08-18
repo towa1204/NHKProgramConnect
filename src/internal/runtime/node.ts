@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import { NetworkAccessError, ResponseError } from '../exception';
-import { ProgramListRes } from '../types';
+import { NetworkAccessError, ResponseError } from '../exception.js';
+import { ProgramListRes } from '../types.js';
 
 export async function fetchNHKProgramNode(url: string) {
   let res = null;

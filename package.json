@@ -2,6 +2,8 @@
   "name": "nhk-program-connect",
   "version": "1.0.0",
   "description": "お気に入りのNHK番組情報を取得",
+  "main": "src/lib.ts",
+  "types": "src/internal/types.ts",
   "scripts": {
     "test": "npx tsc && node dist/run.js"
   },
@@ -23,7 +25,7 @@
   },
   "dependencies": {
     "@types/google-apps-script": "^1.0.67",
-    "@types/node-fetch": "^2.6.4",
-    "node-fetch": "^2.6.12"
-  }
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
 }
