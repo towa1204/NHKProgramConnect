@@ -2,7 +2,7 @@
 export type ProgramListReq = {
   area: string;
   service: string;
-  date: string;
+  date: Date;
   apikey: string;
 };
 

@@ -15,3 +15,8 @@ export function fetchProgramGAS(subProgramTitles: string[], reqParam: ProgramLis
   const programs = fetchNHKProgramGAS(uri);
   return findPrograms(subProgramTitles, programs);
 }
+
+export function fetchProgramWeeklyGAS(subProgramTitles: string[], reqParam: ProgramListReq) {
+  // reqParamを変化させてfetchProgramGASを実行する
+  // 配列を順序関係を持たせて結合。その配列を返す
+}
