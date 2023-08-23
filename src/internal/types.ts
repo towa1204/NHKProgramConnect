@@ -1,4 +1,11 @@
 // Program List API リクエストパラメータの型定義
+export type UserProgramListReq = {
+  area: string;
+  services: string[];
+  date: Date;
+  apikey: string;
+};
+
 export type ProgramListReq = {
   area: string;
   service: string;
