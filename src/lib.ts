@@ -1,5 +1,5 @@
-import { ProgramListReq } from './internal/types.js';
-import { findPrograms, getProgramListURI } from './internal/common.js';
+import { Program, ProgramListReq } from './internal/types.js';
+import { findPrograms, getProgramListURI, getWeekDates } from './internal/common.js';
 import { fetchNHKProgramNode } from './internal/runtime/node.js';
 import { fetchNHKProgramGAS } from './internal/runtime/gas.js';
 
@@ -17,6 +17,14 @@ export function fetchProgramGAS(subProgramTitles: string[], reqParam: ProgramLis
 }
 
 export function fetchProgramWeeklyGAS(subProgramTitles: string[], reqParam: ProgramListReq) {
-  // reqParamを変化させてfetchProgramGASを実行する
-  // 配列を順序関係を持たせて結合。その配列を返す
+  const subscribeWeekPrograms: Program[] = [];
+
+  const weekDates = getWeekDates(reqParam.date);
+  for (const date of weekDates) {
+    reqParam.date = date;
+    const programs = fetchProgramGAS(subProgramTitles, reqParam);
+    subscribeWeekPrograms.push(...programs);
+  }
+
+  return subscribeWeekPrograms;
 }
